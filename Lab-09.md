@@ -111,3 +111,46 @@ variation when someone gives one particular score. Just because someone
 may give a score of 4 doesn’t mean that their following the same
 criteria as someone else also giving that 4. Everyone gives that 4 for
 slightly different reasons. Jitter helps to communicate this.
+
+### Exercise 4
+
+``` r
+m_bty <- lm(evals$score ~ evals$bty_avg)
+
+summary(m_bty)
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = evals$score ~ evals$bty_avg)
+    ## 
+    ## Residuals:
+    ##     Min      1Q  Median      3Q     Max 
+    ## -1.9246 -0.3690  0.1420  0.3977  0.9309 
+    ## 
+    ## Coefficients:
+    ##               Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)    3.88034    0.07614   50.96  < 2e-16 ***
+    ## evals$bty_avg  0.06664    0.01629    4.09 5.08e-05 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.5348 on 461 degrees of freedom
+    ## Multiple R-squared:  0.03502,    Adjusted R-squared:  0.03293 
+    ## F-statistic: 16.73 on 1 and 461 DF,  p-value: 5.083e-05
+
+Linear model is:
+
+score = 3.88 + .067\*bty_avg.
+
+### Exercise 5
+
+``` r
+evals %>% ggplot(aes(x = score, y = bty_avg)) + 
+  geom_jitter() + 
+  stat_smooth(method = lm, se = FALSE, color = "orange")
+```
+
+    ## `geom_smooth()` using formula = 'y ~ x'
+
+![](Lab-09_files/figure-gfm/evals%20plot%20with%20lm-1.png)<!-- -->

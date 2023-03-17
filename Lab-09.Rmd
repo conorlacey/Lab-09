@@ -50,7 +50,27 @@ evals %>% ggplot(aes(x = score, y = bty_avg)) +
 
 Jitter here is adding a little bit of random variation to the location of each point. This helps in that the initial plot isn't doing this because the score variable is a discrete variable. What's misleading about the initial plot is that it assumes that there is no random variation when someone gives one particular score. Just because someone may give a score of 4 doesn't mean that their following the same criteria as someone else also giving that 4. Everyone gives that 4 for slightly different reasons. Jitter helps to communicate this. 
 
-```{r}
+### Exercise 4
 
+```{r m_bty}
+
+m_bty <- lm(evals$score ~ evals$bty_avg)
+
+summary(m_bty)
 ```
 
+Linear model is: 
+
+score = 3.88 + .067*bty_avg.
+
+### Exercise 5
+
+```{r evals plot with lm}
+evals %>% ggplot(aes(x = score, y = bty_avg)) + 
+  geom_jitter() + 
+  stat_smooth(method = lm, se = FALSE, color = "orange")
+```
+
+### Exercise 6
+
+Given the linear model, there is a positive relationship between score and beauty average such that as score increases so does beauty average. 
