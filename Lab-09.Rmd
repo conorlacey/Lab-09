@@ -8,10 +8,9 @@ output: github_document
 ### Libraries
 
 ```{r Libraries}
-library(tidyverse) 
-library(broom)
-library(openintro)
-library(skimr)
+suppressWarnings(library(tidyverse))
+suppressWarnings(library(broom))
+suppressWarnings(library(openintro))
 ```
 
 ### Exercise 1
@@ -54,7 +53,6 @@ Jitter here is adding a little bit of random variation to the location of each p
 
 ```{r m_bty}
 m_bty <- lm(evals$score ~ evals$bty_avg)
-
 summary(m_bty)
 ```
 
@@ -81,3 +79,44 @@ The intercept is 3.88 which means that with a score of 0 the mean average beauty
 ### Exercise 8 
 
 The R^2 value is 0.035 meaning 3.5% of the variance in average beauty ratings can be explained by a professor's average evaluation score.
+
+### Exercise 9
+
+```{r score by gender lm}
+m_gen <- lm(evals$score ~ evals$gender)
+summary(m_gen)
+```
+
+The linear model is: 
+
+score = .14*gender + 4.09 
+
+
+The intercept indicates that female professors earn an average evaluation score of 4.09. The slope indicates that if a professor is male the average evaluation score is .14 more than the female average evaluation score. 
+
+
+### Exercise 10 
+
+Equation for females:
+
+score = 4.09
+
+Equation for males:
+
+score = 4.23
+
+### Exercise 11
+
+```{r score by rank lm}
+m_rank <- lm(evals$score ~ evals$rank)
+summary(m_rank)
+```
+
+The regression model is: 
+
+score = 4.28 + tenture_track*-.13 + tenured*-.16
+
+
+The intercept indicates that the mean average teaching professor score is 4.28. The slope of tenure_track indicates that that mean average tenture track professor score is 4.28-.13, or 4.15. Lastly, the slope of tentured indicates that the mean average tenured professor score is 4.28 - .16, or 4.12. 
+
+
