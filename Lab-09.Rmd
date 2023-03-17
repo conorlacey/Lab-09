@@ -53,7 +53,6 @@ Jitter here is adding a little bit of random variation to the location of each p
 ### Exercise 4
 
 ```{r m_bty}
-
 m_bty <- lm(evals$score ~ evals$bty_avg)
 
 summary(m_bty)
@@ -74,3 +73,10 @@ evals %>% ggplot(aes(x = score, y = bty_avg)) +
 ### Exercise 6
 
 Given the linear model, there is a positive relationship between score and beauty average such that as score increases so does beauty average. 
+
+### Exercise 7
+
+The intercept is 3.88 which means that with a score of 0 the mean average beauty rating is 3.88. I guess this would make sense. This is a relatively low score and I assume that those who do not do well in a class may hold animosity towards their professors such that they give them low beauty ratings. 
+
+### Exercise 8 
+

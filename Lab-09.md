@@ -154,3 +154,18 @@ evals %>% ggplot(aes(x = score, y = bty_avg)) +
     ## `geom_smooth()` using formula = 'y ~ x'
 
 ![](Lab-09_files/figure-gfm/evals%20plot%20with%20lm-1.png)<!-- -->
+
+### Exercise 6
+
+Given the linear model, there is a positive relationship between score
+and beauty average such that as score increases so does beauty average.
+
+### Exercise 7
+
+The intercept is 3.88 which means that with a score of 0 the mean
+average beauty rating is 3.88. I guess this would make sense. This is a
+relatively low score and I assume that those who do not do well in a
+class may hold animosity towards their professors such that they give
+them low beauty ratings.
+
+### Exercise 8
