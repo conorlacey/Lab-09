@@ -78,11 +78,8 @@ on the professor.
 
 ``` r
 evals %>% ggplot(aes(x = score, y = bty_avg)) + 
-  geom_point() + 
-  geom_smooth()
+  geom_point() 
 ```
-
-    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 
 ![](Lab-09_files/figure-gfm/score%20&%20bty_avg-1.png)<!-- -->
 
@@ -96,3 +93,21 @@ cor(evals$score,evals$bty_avg)
     ## [1] 0.1871424
 
 Sure enough. The correlation is very small.
+
+### Exercise 3
+
+``` r
+evals %>% ggplot(aes(x = score, y = bty_avg)) + 
+  geom_jitter() 
+```
+
+![](Lab-09_files/figure-gfm/geom_jitter-1.png)<!-- -->
+
+Jitter here is adding a little bit of random variation to the location
+of each point. This helps in that the initial plot isn’t doing this
+because the score variable is a discrete variable. What’s misleading
+about the initial plot is that it assumes that there is no random
+variation when someone gives one particular score. Just because someone
+may give a score of 4 doesn’t mean that their following the same
+criteria as someone else also giving that 4. Everyone gives that 4 for
+slightly different reasons. Jitter helps to communicate this.
