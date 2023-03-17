@@ -76,4 +76,23 @@ on the professor.
 
 ### Exercise 2
 
-evals %\>% ggplot(aes(x = score, y = ))
+``` r
+evals %>% ggplot(aes(x = score, y = bty_avg)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
+    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+![](Lab-09_files/figure-gfm/score%20&%20bty_avg-1.png)<!-- -->
+
+In general, the relationship between score and beauty average appears to
+be random.
+
+``` r
+cor(evals$score,evals$bty_avg)
+```
+
+    ## [1] 0.1871424
+
+Sure enough. The correlation is very small.

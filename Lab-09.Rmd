@@ -27,4 +27,17 @@ In general students rate courses pretty high. However, there it is skewed to the
 
 ### Exercise 2
 
-evals %>% ggplot(aes(x = score, y = ))
+```{r score & bty_avg}
+evals %>% ggplot(aes(x = score, y = bty_avg)) + 
+  geom_point() + 
+  geom_smooth()
+```
+
+In general, the relationship between score and beauty average appears to be random. 
+
+
+```{r score & bty_avg cor}
+cor(evals$score,evals$bty_avg)
+```
+
+Sure enough. The correlation is very small. 
