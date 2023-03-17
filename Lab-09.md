@@ -275,3 +275,12 @@ tenured professor score is 3.98.
 
 The R^2 value is 0.001 meaning the the rank_relevel variable explains
 0.1% of the of the variance in average professor evaluation scores.
+
+### Exercise 14
+
+``` r
+evals <- evals %>% mutate(tenure_eligible = if_else(rank == "tenure track" | rank == "tenured", 
+                                                    "yes", "no"))
+```
+
+### Exercise 15
