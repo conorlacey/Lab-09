@@ -284,3 +284,39 @@ evals <- evals %>% mutate(tenure_eligible = if_else(rank == "tenure track" | ran
 ```
 
 ### Exercise 15
+
+``` r
+m_tenure_eligible <- lm(evals$score ~ evals$tenure_eligible)
+summary(m_tenure_eligible)
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = evals$score ~ evals$tenure_eligible)
+    ## 
+    ## Residuals:
+    ##     Min      1Q  Median      3Q     Max 
+    ## -1.8438 -0.3438  0.1157  0.4360  0.8562 
+    ## 
+    ## Coefficients:
+    ##                          Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)                4.2843     0.0536  79.934   <2e-16 ***
+    ## evals$tenure_eligibleyes  -0.1406     0.0607  -2.315    0.021 *  
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.5413 on 461 degrees of freedom
+    ## Multiple R-squared:  0.0115, Adjusted R-squared:  0.009352 
+    ## F-statistic: 5.361 on 1 and 461 DF,  p-value: 0.02103
+
+The linear model is:
+
+score = 4.28 + tenure_eligible\*-.14
+
+In this model the intercept indicates that the average mean
+non-tenure-eligible professor score is 4.28. The slope indicates that
+the average mean tenure-eligible professor score is 4.14.
+
+The R^2 value is 0.012 meaning that 1.2% of the variance in mean
+professor scores can be explained by whether or not they are
+tenure-eligible.
