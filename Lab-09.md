@@ -229,3 +229,49 @@ is 4.28. The slope of tenure_track indicates that that mean average
 tenture track professor score is 4.28-.13, or 4.15. Lastly, the slope of
 tentured indicates that the mean average tenured professor score is
 4.28 - .16, or 4.12.
+
+### Exercise 12
+
+``` r
+evals <- evals %>% mutate(rank_relevel = case_when(rank == "tenure track" ~ 0,
+                                          rank == "teaching" ~ 1,
+                                          rank == "tenured" ~ 2))
+```
+
+### Exercise 13
+
+``` r
+m_rank_relevel <- lm(evals$score ~ evals$rank_relevel)
+summary(m_rank_relevel)
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = evals$score ~ evals$rank_relevel)
+    ## 
+    ## Residuals:
+    ##     Min      1Q  Median      3Q     Max 
+    ## -1.9032 -0.3599  0.1185  0.4185  0.8401 
+    ## 
+    ## Coefficients:
+    ##                    Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept)         4.20317    0.04751  88.463   <2e-16 ***
+    ## evals$rank_relevel -0.02166    0.03063  -0.707     0.48    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 0.5442 on 461 degrees of freedom
+    ## Multiple R-squared:  0.001084,   Adjusted R-squared:  -0.001083 
+    ## F-statistic:   0.5 on 1 and 461 DF,  p-value: 0.4798
+
+The linear model is:
+
+score = 4.2 + rank_relevel\*-0.02
+
+In this linear model the intercept indicates that the mean average
+tenure track professor score is 4.2. The slope of rank_level indicates
+that mean average teaching professor score is 4 and the mean average
+tenured professor score is 3.98.
+
+The R^2 value is 0.001 meaning the the rank_relevel variable explains
+0.1% of the of the variance in average professor evaluation scores.
