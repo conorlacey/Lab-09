@@ -5,4 +5,26 @@ date: '2023-03-17'
 output: github_document
 ---
 
+### Libraries
 
+```{r Libraries}
+library(tidyverse) 
+library(broom)
+library(openintro)
+library(skimr)
+```
+
+### Exercise 1
+
+```{r Score}
+evals %>% ggplot(aes(x = score)) +
+  geom_density(fill = "blue", alpha = 0.5)
+
+summary(evals$score)
+```
+
+In general students rate courses pretty high. However, there it is skewed to the left. I would expect this as much, given that most students will do well in a class, getting a B or above and hence will give the professor a good rating. However, a few students will do exteremly poor in the class and hence blame some of their poor behavior on the professor. 
+
+### Exercise 2
+
+evals %>% ggplot(aes(x = score, y = ))
