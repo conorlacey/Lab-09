@@ -80,3 +80,4 @@ The intercept is 3.88 which means that with a score of 0 the mean average beauty
 
 ### Exercise 8 
 
+The R^2 value is 0.035 meaning 3.5% of the variance in average beauty ratings can be explained by a professor's average evaluation score.
